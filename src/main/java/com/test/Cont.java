@@ -11,6 +11,8 @@ public class Cont {
 
 	@RequestMapping(value = "/aaa")
 	public String abc() {
+		Map map = null;
+		System.out.println(map.get("a"));
 		return "index.jsp";
 	}
 
