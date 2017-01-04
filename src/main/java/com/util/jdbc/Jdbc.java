@@ -7,12 +7,15 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.collections.map.ListOrderedMap;
+import org.apache.log4j.Logger;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ConnectionCallback;
 
 import com.util.CommonUtil;
 
 public class Jdbc {
+
+	private static Logger log = Logger.getLogger(Jdbc.class);
 
 	private static int pageSize = 15;
 
@@ -78,8 +81,9 @@ public class Jdbc {
 			});
 		} catch (DataAccessException e) {
 			e.printStackTrace();
+			log.error("Jdbc execute Exception", e);
+			throw e;
 		}
-		return false;
 	}
 
 	/**
