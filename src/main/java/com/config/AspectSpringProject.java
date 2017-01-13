@@ -1,6 +1,7 @@
 package com.config;
 
-import org.apache.log4j.Logger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -15,9 +16,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class AspectSpringProject {
 
-	private Logger log = Logger.getLogger(AspectSpringProject.class);
+	private Log logger = LogFactory.getLog(AspectSpringProject.class);
 
-	@Pointcut("execution(* com.test.*.*(..))")
+	@Pointcut("execution(* com.controller..*.*(..))")
 	public void pointcut() {
 	}
 
@@ -35,7 +36,7 @@ public class AspectSpringProject {
 	public void afterThrowing(Exception e) {
 		e.printStackTrace();
 		System.out.println("AfterThrowing : " + e.getMessage());
-		log.error("AOP", e);
+		logger.error("AOP", e);
 	}
 
 	@After("pointcut()")
