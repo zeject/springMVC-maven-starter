@@ -20,12 +20,12 @@ public class ExceptionAdvice {
 	/**
 	 * 400 - Bad Request
 	 */
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	@ExceptionHandler(HttpMessageNotReadableException.class)
-	public Response handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
-		logger.error("参数解析失败", e);
-		return new Response().failure("could_not_read_json");
-	}
+//	@ResponseStatus(HttpStatus.BAD_REQUEST)
+//	@ExceptionHandler(HttpMessageNotReadableException.class)
+//	public Response handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
+//		logger.error("参数解析失败", e);
+//		return new Response().failure("could_not_read_json");
+//	}
 
 	/**
 	 * 405 - Method Not Allowed
