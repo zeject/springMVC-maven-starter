@@ -2,13 +2,10 @@ package com.test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
 /**
  * Created by zeject on 2017/2/26.
@@ -41,4 +38,5 @@ public class ContControllerTest extends BaseControllerTest {
         Assert.assertNotNull(result.getRequest().getAttribute("data"));
 
     }
+
 }

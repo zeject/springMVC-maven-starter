@@ -30,7 +30,7 @@ public class JdbcDataSource implements DataSource {
 		return 0;
 	}
 
-	public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+	public Logger getParentLogger() {
 		// TODO Auto-generated method stub
 		return null;
 	}
