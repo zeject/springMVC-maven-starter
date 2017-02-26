@@ -11,7 +11,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -65,17 +64,7 @@ public class BaseControllerTest {
 
     protected ResultActions json(String method, String url, Object... obj) throws Exception {
         MockHttpServletRequestBuilder mockHttpServletRequestBuilder;
-        if (method.equals("head")) {
-            mockHttpServletRequestBuilder = head(url, obj);
-        } else if (method.equals("post")) {
-            mockHttpServletRequestBuilder = post(url, obj);
-        } else if (method.equals("put")) {
-            mockHttpServletRequestBuilder = put(url, obj);
-        } else if (method.equals("delete")) {
-            mockHttpServletRequestBuilder = delete(url, obj);
-        } else {
-            mockHttpServletRequestBuilder = get(url, obj);
-        }
+        mockHttpServletRequestBuilder = getMockHttpServletRequestBuilder(method, url, obj);
 
         RequestBuilder requestBuilder = mockHttpServletRequestBuilder.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
         ResultActions ra = mockMvc.perform(requestBuilder)
@@ -106,6 +95,22 @@ public class BaseControllerTest {
 
     protected ResultActions page(String method, String url, String view, Object... obj) throws Exception {
         MockHttpServletRequestBuilder mockHttpServletRequestBuilder;
+        mockHttpServletRequestBuilder = getMockHttpServletRequestBuilder(method, url, obj);
+
+        RequestBuilder requestBuilder = mockHttpServletRequestBuilder.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
+        ResultActions ra = mockMvc.perform(requestBuilder)
+                .andExpect(view().name(view))
+                .andExpect(status().isOk());
+
+        if (print) {
+            ra.andDo(print());
+        }
+        return ra;
+
+    }
+
+    private MockHttpServletRequestBuilder getMockHttpServletRequestBuilder(String method, String url, Object[] obj) {
+        MockHttpServletRequestBuilder mockHttpServletRequestBuilder;
         if (method.equals("head")) {
             mockHttpServletRequestBuilder = head(url, obj);
         } else if (method.equals("post")) {
@@ -117,16 +122,7 @@ public class BaseControllerTest {
         } else {
             mockHttpServletRequestBuilder = get(url, obj);
         }
-
-        RequestBuilder requestBuilder = mockHttpServletRequestBuilder.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
-        ResultActions ra = mockMvc.perform(requestBuilder)
-                .andExpect(view().name(view))
-                .andExpect(status().isOk());
-
-        if (print) {
-            ra.andDo(print());
-        }
-        return ra;
+        return mockHttpServletRequestBuilder;
     }
 
 }
