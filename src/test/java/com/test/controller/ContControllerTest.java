@@ -1,5 +1,6 @@
-package com.test;
+package com.test.controller;
 
+import com.base.BaseControllerTest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MvcResult;

@@ -1,4 +1,4 @@
-package com.test;
+package com.base;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -13,7 +13,5 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @WebAppConfiguration
 @ContextConfiguration(locations = "classpath*:/**/dispatcherServlet-servlet1.xml")
 public class BaseDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
-
-
 
 }

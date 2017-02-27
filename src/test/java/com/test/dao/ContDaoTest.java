@@ -1,6 +1,7 @@
-package com.test;
+package com.test.dao;
 
 import com.ct.ContDao;
+import com.base.BaseDaoTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
