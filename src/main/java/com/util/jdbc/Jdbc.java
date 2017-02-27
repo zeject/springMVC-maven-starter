@@ -1,18 +1,16 @@
 package com.util.jdbc;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.collections.map.ListOrderedMap;
+import com.util.CommonUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ConnectionCallback;
 
-import com.util.CommonUtil;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 public class Jdbc {
 
@@ -155,7 +153,7 @@ public class Jdbc {
 		int startIndex = (index - 1) * size;
 
 		String exeSql = sql + " limit " + startIndex + "," + size;
-		List<ListOrderedMap> list = find(exeSql, obj);
+		List list = find(exeSql, obj);
 		return new Page(list, count, index, size, totalPageCount);
 	}
 

@@ -1,7 +1,6 @@
 package com.ct;
 
 import com.config.Response;
-import com.util.jdbc.Jdbc;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -48,7 +47,7 @@ public class ContController {
 
 
     public static void main(String[] args) {
-        Jdbc.find("select * from verify_yzm");
+//        Jdbc.find("select * from spring_user");
     }
 
 }

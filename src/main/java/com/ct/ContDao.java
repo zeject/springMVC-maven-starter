@@ -12,7 +12,7 @@ import java.util.List;
 public class ContDao {
 
     public List getData() {
-        return Jdbc.find("select * from verify_yzm");
+        return Jdbc.find("select * from spring_user");
     }
 
 }

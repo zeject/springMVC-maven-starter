@@ -1,14 +1,13 @@
 package com.util.jdbc;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import javax.sql.DataSource;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.SQLFeatureNotSupportedException;
 import java.util.logging.Logger;
-
-import javax.sql.DataSource;
-
-import org.springframework.jdbc.core.JdbcTemplate;
 
 public class BaseDao {
 
@@ -69,7 +68,7 @@ public class BaseDao {
 		return jdbcTemplate;
 	}
 
-	public static void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		BaseDao.jdbcTemplate = jdbcTemplate;
 	}
 
