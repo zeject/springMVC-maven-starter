@@ -79,19 +79,19 @@ public class BaseControllerTest extends AbstractTransactionalJUnit4SpringContext
 
 
     protected ResultActions getPage(String url, String view, Object... obj) throws Exception {
-        return json("get", url, view, obj);
+        return page("get", url, view, obj);
     }
 
     protected ResultActions postPage(String url, String view, Object... obj) throws Exception {
-        return json("post", url, view, obj);
+        return page("post", url, view, obj);
     }
 
     protected ResultActions putPage(String url, String view, Object... obj) throws Exception {
-        return json("put", url, view, obj);
+        return page("put", url, view, obj);
     }
 
     protected ResultActions deletePage(String url, String view, Object... obj) throws Exception {
-        return json("delete", url, view, obj);
+        return page("delete", url, view, obj);
     }
 
     protected ResultActions page(String method, String url, String view, Object... obj) throws Exception {

@@ -1,6 +1,9 @@
 /target/
+/out/
+/build/
 .classpath
 .project
 .settings/
 .idea/
 /qqh/
+*.iml
