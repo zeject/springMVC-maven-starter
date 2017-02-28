@@ -1,8 +1,8 @@
 package com.util.jdbc;
 
 import com.util.CommonUtil;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ConnectionCallback;
 
@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class Jdbc {
 
-	private static Log logger = LogFactory.getLog(Jdbc.class);
+	private static Logger logger = LogManager.getLogger(Jdbc.class);
 
 	private static int pageSize = 15;
 

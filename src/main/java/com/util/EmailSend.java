@@ -1,22 +1,20 @@
 package com.util;
 
-import java.util.List;
-import java.util.Map;
+import com.config.Constants;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.mail.Multipart;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMultipart;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.HtmlEmail;
-
-import com.config.Constants;
+import java.util.List;
+import java.util.Map;
 
 public class EmailSend {
 
-	private static Log logger = LogFactory.getLog(EmailSend.class);
+	private static Logger logger = LogManager.getLogger(EmailSend.class);
 
 	public static void sendEmail(String title, String text, List<String> list) {
 		try {

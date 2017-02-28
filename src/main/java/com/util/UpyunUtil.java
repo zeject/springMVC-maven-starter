@@ -15,7 +15,7 @@ import com.toolkit.UpYun;
  */
 public class UpyunUtil {
 
-	private static Log logger = LogFactory.getLog(UpyunUtil.class);
+	private static Logger logger = LogManager.getLogger(UpyunUtil.class);
 
 	// 运行前先设置好以下三个参数
 	/**

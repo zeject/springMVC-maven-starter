@@ -6,7 +6,6 @@ import javax.sql.DataSource;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.SQLFeatureNotSupportedException;
 import java.util.logging.Logger;
 
 public class BaseDao {
@@ -29,7 +28,7 @@ public class BaseDao {
 				return 0;
 			}
 
-			public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+			public Logger getParentLogger() {
 				// TODO Auto-generated method stub
 				return null;
 			}

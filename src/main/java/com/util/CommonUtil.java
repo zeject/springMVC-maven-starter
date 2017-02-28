@@ -10,8 +10,8 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
 
 import javax.imageio.ImageIO;
@@ -32,7 +32,7 @@ import java.util.regex.Pattern;
 
 public class CommonUtil {
 
-    private static Log logger = LogFactory.getLog(CommonUtil.class);
+    private static Logger logger = LogManager.getLogger(CommonUtil.class);
 
     public final static String ipay = "^(0|([1-9]{1}\\d{0,7}))(\\.\\d{1,2})*$";// 支付宝支付正则,一分与1亿之间
     public final static String yzbm = "^[a-zA-Z0-9 ]{3,12}$";// 邮政编码

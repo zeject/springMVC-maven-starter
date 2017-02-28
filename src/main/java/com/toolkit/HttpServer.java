@@ -1,8 +1,6 @@
 package com.toolkit;
 
 import com.alibaba.fastjson.JSON;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -17,6 +15,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.protocol.HttpService;
 import org.apache.http.util.EntityUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
@@ -27,7 +27,7 @@ import java.util.Map;
  * HTTP 请求
  */
 public class HttpServer {
-    private static Log logger = LogFactory.getLog(HttpService.class);
+    private static Logger logger = LogManager.getLogger(HttpService.class);
 
     private static CloseableHttpClient httpClient = buildHttpClient();
 

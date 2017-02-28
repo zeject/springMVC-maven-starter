@@ -11,7 +11,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class DBOperator {
 
-	private static Log logger = LogFactory.getLog(DBOperator.class);
+	private static Logger logger = LogManager.getLogger(DBOperator.class);
 
 	public static ComboPooledDataSource dsWebgame = null;
 

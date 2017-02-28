@@ -13,7 +13,7 @@ import org.apache.commons.logging.LogFactory;
 
 public class FileUtil {
 
-	private static Log logger = LogFactory.getLog(FileUtil.class);
+	private static Logger logger = LogManager.getLogger(FileUtil.class);
 
 	public static String checkCreatDir(String dirPath) { // 目录是否存在
 		File file = new File(dirPath);

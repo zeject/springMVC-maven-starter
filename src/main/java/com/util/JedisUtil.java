@@ -19,7 +19,7 @@ import redis.clients.jedis.SortingParams;
 @SuppressWarnings("deprecation")
 public class JedisUtil {
 
-	private static Log logger = LogFactory.getLog(JedisUtil.class);
+	private static Logger logger = LogManager.getLogger(JedisUtil.class);
 
 	public static void main(String[] args) {
 

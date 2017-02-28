@@ -1,9 +1,8 @@
 package com.config;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseBody
 public class ExceptionAdvice {
 
-	private static final Log logger = LogFactory.getLog(ExceptionAdvice.class);
+	private static Logger logger = LogManager.getLogger(ExceptionAdvice.class);
 
 	/**
 	 * 400 - Bad Request
