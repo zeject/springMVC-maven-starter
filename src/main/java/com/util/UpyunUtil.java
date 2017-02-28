@@ -1,12 +1,11 @@
 package com.util;
 
+import com.toolkit.UpYun;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.File;
 import java.io.IOException;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import com.toolkit.UpYun;
 
 /**
  * 图片类空间的demo，一般性操作参考文件空间的demo（FileBucketDemo.java）

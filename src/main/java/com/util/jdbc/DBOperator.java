@@ -1,13 +1,12 @@
 package com.util.jdbc;
 
-import java.beans.PropertyVetoException;
-import java.sql.SQLException;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.config.Constants;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.beans.PropertyVetoException;
+import java.sql.SQLException;
 
 public class DBOperator {
 
