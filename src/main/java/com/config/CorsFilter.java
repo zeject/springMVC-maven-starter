@@ -1,20 +1,13 @@
 package com.config;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.List;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 跨域过滤器
@@ -23,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  */
 @WebFilter(urlPatterns = "/*", initParams = {
-		@WebInitParam(name = "allowOrigin", value = "http://localhost,mp12345.com,http://192.168.1.202:8080"),
+		@WebInitParam(name = "allowOrigin", value = "http://localhost,http://192.168.1.202:8080"),
 		@WebInitParam(name = "allowMethods", value = "*"), @WebInitParam(name = "allowCredentials", value = "true"),
 		@WebInitParam(name = "allowHeaders", value = "Content-Type"),
 		@WebInitParam(name = "exposeHeaders", value = "") })
