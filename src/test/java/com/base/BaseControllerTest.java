@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(locations = "classpath*:/**/dispatcherServlet-servlet1.xml")
+@ContextConfiguration(locations = "classpath*:/**/dispatcherServlet-*.xml")
 public class BaseControllerTest extends AbstractTransactionalJUnit4SpringContextTests {
 
     @Autowired

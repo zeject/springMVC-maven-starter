@@ -24,7 +24,7 @@
 
     <context:annotation-config/>
 
-    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <!--<aop:aspectj-autoproxy proxy-target-class="true"/>-->
 
     <mvc:annotation-driven
             content-negotiation-manager="contentManager">

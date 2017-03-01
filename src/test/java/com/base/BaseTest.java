@@ -12,6 +12,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations = "classpath*:/**/dispatcherServlet-*.xml")
-public class BaseDaoTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class BaseTest {
 
 }
