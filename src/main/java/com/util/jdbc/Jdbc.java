@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ConnectionCallback;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +14,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Jdbc {
+
+    public static JdbcTemplate getJdbcTemplate() {
+        return BaseDao.getJdbcTemplate();
+    }
 
     private static Logger logger = LogManager.getLogger(Jdbc.class);
 
@@ -59,8 +64,12 @@ public class Jdbc {
     }
 
     public static List findForIn(String sqlForIn, Object... obj) {
+        return findForIn(sqlForIn, "", obj);
+    }
+
+    public static List findForIn(String sqlForIn, String endSql, Object... obj) {
         String string = " " + CommonUtil.getWen(obj.length);
-        return BaseDao.getJdbcTemplate().queryForList(sqlForIn + string, obj);
+        return BaseDao.getJdbcTemplate().queryForList(sqlForIn + string + endSql, obj);
     }
 
     @SuppressWarnings("unchecked")
