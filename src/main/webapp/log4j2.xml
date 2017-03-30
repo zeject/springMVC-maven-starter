@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration status="OFF">
+<!-- help http://logging.apache.org/log4j/2.x/manual/appenders.html -->
+<configuration status="error">
     <appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
-        <File name="log" fileName="qqh/logger.log" append="false">
+        <File name="log" fileName="qqh/logger.log" append="true">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
         </File>
 
@@ -14,11 +15,28 @@
         <!--<PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>-->
         <!--<SizeBasedTriggeringPolicy size="50MB"/>-->
         <!--</RollingFile>-->
+
+        <JDBC name="databaseAppender" tableName="log_log4j">
+            <!--<DataSource jndiName="java:/comp/env/com/util/jdbc/JdbcDataSource"/>-->
+            <ConnectionFactory class="com.util.jdbc.DBOperator" method="getConnection"/>
+            <Column name="eventDate" isEventTimestamp="true"/>
+            <Column name="level" pattern="%level"/>
+            <Column name="logger" pattern="%logger"/>
+            <Column name="message" pattern="%message"/>
+            <Column name="exception" pattern="%ex{full}"/>
+        </JDBC>
+
+        <SMTP name="Mail" subject="Error Log" to="" from=""
+              smtpHost="" bufferSize="10" smtpPort="25" smtpUsername=""
+              smtpPassword="">
+        </SMTP>
     </appenders>
     <loggers>
-        <root level="error">
-            <appender-ref ref="Console"/>
-            <appender-ref ref="log"/>
+        <root level="debug">
+            <appender-ref ref="Console" level="info"/>
+            <appender-ref ref="log" level="error"/>
+            <!--<AppenderRef ref="databaseAppender" level="info"/>-->
+            <!--<AppenderRef ref="Mail" level="error"/>-->
         </root>
     </loggers>
 </configuration>

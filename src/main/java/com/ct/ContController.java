@@ -1,6 +1,8 @@
 package com.ct;
 
 import com.config.Response;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +16,10 @@ import java.util.Map;
 @Controller
 public class ContController {
 
-    @Scheduled(cron="0/5 * *  * * ? ")   //每5秒执行一次
-    public void myTest(){
+    private static Logger logger = LogManager.getLogger(ContController.class);
+
+    @Scheduled(cron = "0/5 * *  * * ? ")   //每5秒执行一次
+    public void myTest() {
         System.out.println("进入测试");
     }
 
