@@ -35,9 +35,9 @@ public class Constants {
     /*
      * 数据库相关变量
      */
-    public static final String Jdbc_Url = "jdbc:mysql://192.168.1.220:3306/spring?useOldAliasMetadataBehavior=true&amp;useUnicode=true&amp;characterEncoding=utf-8";
-    public static final String Jdbc_Username = "spring";
-    public static final String Jdbc_Password = "spring";
+    public static final String Jdbc_Url = "jdbc:mysql://sp501a38f1195ed.mysql.rds.aliyuncs.com:3306/club?useOldAliasMetadataBehavior=true&amp;useUnicode=true&amp;characterEncoding=utf-8";
+    public static final String Jdbc_Username = "club";
+    public static final String Jdbc_Password = "zxc123123";
 
     /**
      * redis
