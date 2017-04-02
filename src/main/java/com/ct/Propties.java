@@ -16,6 +16,9 @@ public class Propties {
     @Value("${text}")
     public String text;
 
+//    @Autowired
+//    Environment env; // env.getProperty(key);
+
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
         return new PropertySourcesPlaceholderConfigurer();

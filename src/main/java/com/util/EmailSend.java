@@ -6,9 +6,6 @@ import org.apache.commons.mail.HtmlEmail;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.mail.Multipart;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMultipart;
 import java.util.List;
 import java.util.Map;
 
@@ -19,8 +16,6 @@ public class EmailSend {
 	public static void sendEmail(String title, String text, List<String> list) {
 		try {
 			HtmlEmail email = new HtmlEmail();
-			Multipart multipart = new MimeMultipart();
-			MimeBodyPart mbp = new MimeBodyPart();
 			email.setCharset("UTF-8");
 			email.setHostName(Constants.hostName);
 			for (int i = 0; i < list.size(); i++) {
