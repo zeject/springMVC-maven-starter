@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,14 +19,16 @@ public class ContController {
 
     private static Logger logger = LogManager.getLogger(ContController.class);
 
-    @Scheduled(cron = "0/5 * *  * * ? ")   //每5秒执行一次
+    //@Scheduled(cron = "0/5 * *  * * ? ")   //每5秒执行一次
     public void myTest() {
         System.out.println("进入测试");
     }
 
     @RequestMapping(value = "/ppp")
     @ResponseBody
-    public Response ppp(@Valid PojoBean pb) {
+    public Response ppp(@Valid PojoBean pb, BindingResult bindingResult) {
+        bindingResult.hasErrors();
+        bindingResult.getFieldError().getDefaultMessage();
         System.out.println(pb.toString());
         return new Response().success("abadwd");
     }
