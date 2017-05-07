@@ -1,5 +1,7 @@
 package com.ct;
 
+import com.config.CustomException;
+import com.config.CustomResponse;
 import com.config.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -54,6 +56,9 @@ public class ContController {
     @ResponseBody
     @RequestMapping(value = "/j")
     public Map abc(Map resMap) {
+        if (resMap != null) {
+            throw new CustomException(CustomResponse.UNKONW_ERROR);
+        }
         resMap.put("data", 1);
         return resMap;
     }
